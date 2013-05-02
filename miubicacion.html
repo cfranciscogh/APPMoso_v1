@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>App MOSO</title>
+
+    <script src="js/jquery.js"></script>
+   <script type="text/javascript" 
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places">
+</script> 
+	 <script src="cordova-1.9.0.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+    // Wait for Cordova to load
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Cordova is ready
+    //
+    function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    }
+
+    // onSuccess Geolocation
+    //
+    function onSuccess(position) {
+        var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          +                                   position.timestamp          + '<br />';
+                            
+                            
+          var myLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+    	map  = new google.maps.Map(document.getElementById('geoLocation'), {
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	center: myLocation,
+	zoom: 15
+    	});
+    	
+    	var marker = new google.maps.Marker({
+	map: map,
+	position: myLocation
+    }); 
+                            
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+
+    </script>
+
+<link rel="stylesheet" type="text/css" href="css.css">
+</head>
+
+<body  >
+
+<div class="page">
+    <div class="head">
+        <p><a href="http://bip.pe/bip/">MOSO#</a></p>
+    </div>
+
+
+<div class="contentPage"> 
+<p id="geolocation">Finding geolocation...</p>
+
+
+<div id="geoLocation" style="margin:20px 5px; height:200px;"></div>
+
+
+<a style='width:30%; margin:auto;' href='panel.html' class='active' >Volver</a>
+
+</div>
+
+
+</div> 
+</body>
+</html>
