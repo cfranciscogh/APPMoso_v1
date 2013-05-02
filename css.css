@@ -316,10 +316,82 @@ padding:0px 20px 20px 20px;
 }
 
 
+/**************************************************************************/
+/***************************  CINE    *************************************/
+/**************************************************************************/
 
-.servicios ul li .clear{
-	clear:both;
+/*************MENU**********/
+body.cine .contentMenu {
+	
+background-image: linear-gradient(bottom, rgb(55,53,54) 22%, rgb(86,92,90) 61%);
+background-image: -o-linear-gradient(bottom, rgb(55,53,54) 22%, rgb(86,92,90) 61%);
+background-image: -moz-linear-gradient(bottom, rgb(55,53,54) 22%, rgb(86,92,90) 61%);
+background-image: -webkit-linear-gradient(bottom, rgb(55,53,54) 22%, rgb(86,92,90) 61%);
+background-image: -ms-linear-gradient(bottom, rgb(55,53,54) 22%, rgb(86,92,90) 61%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.22, rgb(55,53,54)),
+	color-stop(0.61, rgb(86,92,90))
+);
+	 
 }
+ 
+body.cine .contentMenu a.select span{	 
+	border-bottom:solid 5px #f81421;	 
+}
+
+/************* TITULO **********/
+body.cine .contentPage h1.ayer{
+	 
+	border-bottom:solid 2px #f4151a;
+	color:#f4151a;
+	margin-bottom:0px;
+	}
+
+/************* CONTENT **********/
+body.cine .contentPage {
+	padding:0px;
+	}
+
+/*******SERVICIOS*************/
+body.cine .servicios{
+	width:100%;
+}
+body.cine .servicios ul li{
+	width:49.8%;
+	border:none !important;
+	border-bottom:solid 1px #ccc !important;
+	border-left:solid 1px #ccc !important;
+}
+
+body.cine .servicios ul li .contentImg{
+	width:80%;
+	text-align:center;
+	float:none !important;
+	margin:auto;
+}
+body.cine .servicios ul li .contentImg img{
+	max-width:95%;
+}
+body.cine .servicios ul li .contentTxt{
+	width:90%;
+	font-size:16px;
+	float:none !important;
+	margin:auto;
+	text-align:center;
+	font-weight:bold;
+}
+body.cine .servicios ul li .contentTxt p{
+	margin:0px;
+}
+
+/**************************************************************************/
+/***************************  FIN CINE    *********************************/
+/**************************************************************************/
+ 
 
 div.page div.head p{
 	padding:0px;
@@ -436,81 +508,7 @@ div.page div.menu a.titulo{
 	padding-left:10px;
 }
 
-div.page .pageModo{
-	padding:10px;
-	height:auto;
-	display:none;
-}
-div.page .show{
-	display:block;
-}
-div.page .pageModo ul{
-	padding:0px;
-	margin:0px;
-	list-style:none;
-}
-
-div.page .pageModo ul li{
-	padding:0px;
-	margin:0px;
-	list-style:none;
-}
-div.page .pageModo ul li a{
-	color:white;
-}
-div.page .pageModo ul li .imageList{
-	width:30%;
-	text-align:center;
-	float:left;
-}
-div.page .pageModo ul li .imageList img{
-	width:90%;
-}
-div.page .pageModo ul li .textList{
-	width:70%;
-	float:left;
-}
-div.page .pageModo ul li .textList h1{
-	margin:0px;
-	padding:10px 10px 5px 10px;
-	color:#fffd86;
-	font-size:16px;
-}
-div.page .pageModo ul li .textList p{
-	margin:0px;
-	padding:0px 10px 10px 10px;
-}
-div.page .pageModo ul li .textList a{
-	color:white;
-}
-div.page .pageModo ul.ListaResultadoPeliculas{
-	padding:15px;
-}
-div.page .pageModo ul.ListaResultadoPeliculas li{
-	background-image: url(img/ico-pelicula.jpg);
-	background-repeat: no-repeat;
-	background-position: 2px 2px;
-	padding-left:32px;
-	line-height:30px;
-	text-decoration:none;
-}
-div.page .pageModo ul.ListaResultadoPeliculas li.cinepolis{
-	background-image: url(img/ico-cinepolis.jpg);
-}
-div.page .pageModo ul.ListaResultadoPeliculas li.mark{
-	background-image: url(img/ico-cinemark.jpg);
-}
-div.page .pageModo ul.ListaResultadoPeliculas li.planet{
-	background-image: url(img/ico-cineplanet.jpg);
-}
-div.page .pageModo ul.ListaResultadoPeliculas li.uvk{
-	background-image: url(img/ico-uvk.jpg);
-}
-
-
-div.page .pageModo ul.ListaResultadoPeliculas li a{
-	text-decoration:none;
-}
+ 
 #busy {
 	display:none;
 	position: absolute;
