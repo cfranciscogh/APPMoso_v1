@@ -18,7 +18,8 @@ $(document).ready(function(){
 						$(".servicios ul").append('<li style="cursor:pointer;" id="'+itemResult.codMarca+'"><div class="contentImg"><img src="'+itemResult.imagenMarca +'"></div><div class="contentTxt"><p class="des">'+itemResult.Marca+'</p></div><div class="clear"></div></li>');
 						
 						//$(".menuInicio").append('<a id="'+itemResult.codigo+'" href="#">'+itemResult.descripcion+'</a>');
-						  
+						if( (a + 1)%2==0)
+							$(".servicios ul").append('<div class="clear"></div>');  
 						 
 						
 					});
@@ -50,7 +51,9 @@ $(document).ready(function(){
 						 $.each(data.BusquedaCinePorNombreResult , function(i,item){
 							//console.log(item); 
 							$.each(item , function(a,itemResult){
-								$(".salas ul").append('<li id="'+itemResult.codigo+'" cine="'+idcine+'" cinedes="'+cinedes+'"><p>'+itemResult.nombre+'</p><span>'+itemResult.direccion+'</span></li>');
+								$(".salas ul").append('<li id="'+itemResult.codigo+'" cine="'+idcine+'" cinedes="'+cinedes+'"><div class="content-sala"><p>'+itemResult.nombre+'</p><span>'+itemResult.direccion+'</span></div></li>');
+								
+								
 
 							});
 							 getPeliculasPorSala()

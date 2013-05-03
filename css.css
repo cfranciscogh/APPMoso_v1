@@ -375,7 +375,7 @@ body.cine .servicios ul li .contentImg{
 	padding-bottom:0px;
 }
 body.cine .servicios ul li .contentImg img{
-	max-width:95%;
+	max-width:90%;
 }
 body.cine .servicios ul li .contentTxt{
 	width:90%;
@@ -397,14 +397,14 @@ body.cine .salas .cine {
 }
 body.cine .salas .cine .contentImg{
 	float:left;
-	width:70%;
+	width:60%;
 }
 body.cine .salas .cine .contentImg img{
 	max-width:90%;
 }
 body.cine .salas .cine .contentTxt{
 	float:left;
-	width:25%;
+	width:32%;
 	padding-left:10px;
 	padding-top:20px;
 }
@@ -429,14 +429,20 @@ background-image: -webkit-gradient(
 	color-stop(0.12, rgb(238,238,238)),
 	color-stop(0.56, rgb(251,251,251))
 );
+padding-right:5px;
 
 	}
+body.cine .salas ul li .content-sala{
+	background-image:url(img/flechaAzul.png);
+	background-position:100% 48%;
+	background-repeat:no-repeat;
+	padding-right:20px;
+	}
+	
 body.cine .salas ul li p{
 	margin:0px;
 	color:#067adf;
-	background-image:url(img/flechaAzul.png);
-	background-position:top right;
-	background-repeat:no-repeat;
+	
 	}
 body.cine .salas ul li span{
 	margin:0px;
@@ -477,11 +483,11 @@ background-image: -webkit-gradient(
 	
 body.cine .peliculas ul li .imgPelicula{
 	float:left;
-	width:40%;
+	width:35%;
 	text-align:center;
 	}
 body.cine .peliculas ul li .imgPelicula img{
-	max-width:80%;
+	max-width:90%;
 	}
 	
 body.cine .peliculas ul li .despelicula{
@@ -491,7 +497,7 @@ body.cine .peliculas ul li .despelicula{
 	background-image:url(img/flechaAzul.png);
 	background-position:100% 48%;
 	background-repeat:no-repeat;
-	padding:20px 20px 20px 0px;
+	padding:5px 20px 20px 0px;
 	}
 	
 
@@ -511,13 +517,14 @@ body.cine .peliculas ul li a.vermas{
 	padding:10px 20px;
 	display:block;
 	margin:auto;
-	width:50%;
+	width:70%;
 	color:white;
 	background-color:#f4151a;
 	text-align:center;
 	-webkit-border-radius: 8px;
 -moz-border-radius: 8px;
 border-radius: 8px;
+font-size:14px;
 	}
 /**************************************************************************/
 /***************************  FIN CINE    *********************************/
