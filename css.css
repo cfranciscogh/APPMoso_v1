@@ -361,7 +361,7 @@ body.cine .servicios{
 	width:100%;
 }
 body.cine .servicios ul li{
-	width:49.8%;
+	width:49.6%;
 	border:none !important;
 	border-bottom:solid 1px #ccc !important;
 	border-left:solid 1px #ccc !important;
@@ -372,6 +372,7 @@ body.cine .servicios ul li .contentImg{
 	text-align:center;
 	float:none !important;
 	margin:auto;
+	padding-bottom:0px;
 }
 body.cine .servicios ul li .contentImg img{
 	max-width:95%;
@@ -388,6 +389,105 @@ body.cine .servicios ul li .contentTxt p{
 	margin:0px;
 }
 
+/*******SALAS*************/
+
+body.cine .salas{}
+body.cine .salas .cine {
+	padding:15px;
+}
+body.cine .salas .cine .contentImg{
+	float:left;
+	width:70%;
+}
+body.cine .salas .cine .contentImg img{
+	max-width:90%;
+}
+body.cine .salas .cine .contentTxt{
+	float:left;
+	width:25%;
+	padding-left:10px;
+	padding-top:20px;
+}
+body.cine .salas ul{ margin:0px;
+padding:0px;}
+body.cine .salas ul li{
+	padding:10px;
+	list-style:none;
+	border-top:solid 1px #ccc;
+	cursor:pointer;
+	
+	background-image: linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -o-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -moz-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.12, rgb(238,238,238)),
+	color-stop(0.56, rgb(251,251,251))
+);
+
+	}
+body.cine .salas ul li p{
+	margin:0px;
+	color:#067adf;
+	background-image:url(img/flechaAzul.png);
+	background-position:top right;
+	background-repeat:no-repeat;
+	}
+body.cine .salas ul li span{
+	margin:0px;
+	color:#7a7a7a;
+	}
+	
+
+
+
+/*******PELICULAS*************/
+
+body.cine .peliculas{}
+ 
+ 
+body.cine .peliculas ul{ margin:0px;
+padding:0px;}
+body.cine .peliculas ul li{
+	padding:10px;
+	list-style:none;
+	border-top:solid 1px #ccc;
+	cursor:pointer;
+	
+	background-image: linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -o-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -moz-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -webkit-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+background-image: -ms-linear-gradient(bottom, rgb(238,238,238) 12%, rgb(251,251,251) 56%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.12, rgb(238,238,238)),
+	color-stop(0.56, rgb(251,251,251))
+);
+
+	}
+	
+
+
+body.cine .peliculas ul li p{
+	margin:0px;
+	color:#515151;
+	background-image:url(img/flechaAzul.png);
+	background-position:top right;
+	background-repeat:no-repeat;
+	}
+body.cine .peliculas ul li span{
+	margin:0px;
+	color:#7a7a7a;
+	}
 /**************************************************************************/
 /***************************  FIN CINE    *********************************/
 /**************************************************************************/

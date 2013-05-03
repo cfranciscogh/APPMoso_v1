@@ -19,14 +19,14 @@ $(document).ready(function(){
 						
 						//$(".menuInicio").append('<a id="'+itemResult.codigo+'" href="#">'+itemResult.descripcion+'</a>');
 						  
-						i++;
+						 
 						
 					});
-					//getHoroscopo();
+					getSalaPorCine();
 				  });
 			  }); 
 }
-    function getHoroscopo(){
+    function getSalaPorCine(){
 		
 		 //$(".menuInicio a").each(function() {
 		$(".servicios ul li").each(function() {
@@ -35,22 +35,25 @@ $(document).ready(function(){
                     evento.preventDefault();
                     $(".servicios").fadeOut();
 					$('#busy').show();
-					$(".resultHoroscopo").append("<h1>"+$(this).html()+"</h1><p id='chisteHoy' style='padding:20px;'></p><div class='content-registro'><div class='btnForm'><a id='btnRegistrar' onclick='volver()'>Volver</a></div></div>").fadeIn();
-					$.getJSON(base + "dataServices/horoscopo.php?comando="+ $(this).attr("id"), function (data) {
-						console.log(data); 
+					 $(".salas").fadeIn();
+					 
+					 var cinedes = $(".servicios ul li#" + $(this).attr("id")).find(".contentTxt").text().toUpperCase();
+					 var idcine = $(this).attr("id");
+					 $("h1.ayer").html(cinedes + " - SALAS");
+					$(".salas .cine").html($(".servicios ul li#" + $(this).attr("id")).html() );
+					
+					//$(".resultHoroscopo").append("<h1>"+$(this).html()+"</h1><p id='chisteHoy' style='padding:20px;'></p><div class='content-registro'><div class='btnForm'><a id='btnRegistrar' onclick='volver()'>Volver</a></div></div>").fadeIn();
+					
+					$.getJSON(base + "getSalas_x_Cine.php?codMarca="+ $(this).attr("id"), function (data) {
+						//console.log(data); 
 						$('#busy').hide();
-						 $.each(data.selectContenidoSuscripcionResult , function(i,item){
-							i = 0;
+						 $.each(data.BusquedaCinePorNombreResult , function(i,item){
+							//console.log(item); 
 							$.each(item , function(a,itemResult){
-								console.log(itemResult);
-								if(i==0)
-									$("#chisteAyer").html( (itemResult.contenido==null?"No hay contenido":itemResult.contenido)   );
-								else
-									$("#chisteHoy").html((itemResult.contenido==null?"No hay contenido":itemResult.contenido));
-								  
-								i++;
-								
+								$(".salas ul").append('<li id="'+itemResult.codigo+'" cine="'+idcine+'" cinedes="'+cinedes+'"><p>'+itemResult.nombre+'</p><span>'+itemResult.direccion+'</span></li>');
+
 							});
+							 getPeliculasPorSala()
 						  });
 					  }); 
 			  
@@ -59,6 +62,50 @@ $(document).ready(function(){
 
 		
 		}
+		
+		
+		function getPeliculasPorSala(){
+		
+		 //$(".menuInicio a").each(function() {
+		$(".salas ul li").each(function() {
+
+                $(this).click(function(evento) {
+                    evento.preventDefault();
+                    $(".salas").fadeOut();
+					$('#busy').show();
+					 $(".peliculas").fadeIn();
+					 $("h1.ayer").html( $(this).attr("cinedes").toUpperCase() + " - CARTELERA");
+					
+					 var cinedes = $(this).find("p").text().toUpperCase();
+					 var idcine = $(this).attr("cine");
+					  var idsala = $(this).attr("id");
+					  var desprueba = "Doblada: <br/> 11:10am - 1:50pm - 4:30pm - 7:10pm - 9:50pm";
+
+					$.getJSON(base + "getPeliculas_x_Sala.php?codigoCine="+ $(this).attr("id"), function (data) {
+						console.log(data); 
+						$('#busy').hide();
+						 $.each(data.BusquedaCarteleraPorCineResult , function(i,item){
+							console.log(item); 
+							$.each(item , function(a,itemResult){
+								
+								console.log(itemResult); 
+								
+								$(".peliculas ul").append('<li id="'+itemResult.codigoRespuesta+'" cine="'+idcine+'" sala="'+idsala+'"><div class="imgPelicula"><img src="'+itemResult.imagenUrlRespuesta+'" alt="pelicual"/></div><div class="despelicula"><p>'+itemResult.nombreRespuesta+'</p><span>'+
+								(itemResult.direccionRespuesta.length<1? desprueba : itemResult.direccionRespuesta) +'</span></div></li>');
+								
+								$("h1.ayer").html( itemResult.nombreCriterio.toUpperCase() + " - CARTELERA");
+							});
+							 //getPeliculasPorSala()
+						  });
+					  }); 
+			  
+                });
+            });
+
+		
+		}
+		
+		
 		function volver(){
 			$(".resultHoroscopo").fadeOut().html("");
 			 $(".servicios").fadeIn();
