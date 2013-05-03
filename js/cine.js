@@ -85,20 +85,71 @@ $(document).ready(function(){
 					  var desprueba = "Doblada: <br/> 11:10am - 1:50pm - 4:30pm - 7:10pm - 9:50pm";
 
 					$.getJSON(base + "getPeliculas_x_Sala.php?codigoCine="+ $(this).attr("id"), function (data) {
-						console.log(data); 
+						//console.log(data); 
 						$('#busy').hide();
 						 $.each(data.BusquedaCarteleraPorCineResult , function(i,item){
-							console.log(item); 
+							//console.log(item); 
 							$.each(item , function(a,itemResult){
 								
-								console.log(itemResult); 
+								//console.log(itemResult); 
 								
 								$(".peliculas ul").append('<li id="'+itemResult.codigoRespuesta+'" cine="'+idcine+'" sala="'+idsala+'"><div class="imgPelicula"><img src="'+itemResult.imagenUrlRespuesta+'" alt="pelicual"/></div><div class="despelicula"><p>'+itemResult.nombreRespuesta+'</p><span>'+
 								(itemResult.direccionRespuesta.length<1? desprueba : itemResult.direccionRespuesta) +'</span><a class="vermas">Ver detalle >></a></div><div class="clear"></div> </li>');
 								
 								$("h1.ayer").html( itemResult.nombreCriterio.toUpperCase() + " - CARTELERA");
 							});
-							 //getPeliculasPorSala()
+								getPeliculaDetalle()
+						  });
+					  }); 
+			  
+                });
+            });
+
+		
+		}
+		
+		
+		function getPeliculaDetalle(){
+		
+		 //$(".menuInicio a").each(function() {
+		$(".peliculas ul li").each(function() {
+
+                $(this).click(function(evento) {
+                    evento.preventDefault();
+                    $(".peliculas").fadeOut();
+					$('#busy').show();
+					 $(".detalle").fadeIn();
+					 					
+					 var idcine = $(this).attr("cine");
+					 var idsala = $(this).attr("sala");
+					 var idpelicula = $(this).attr("id");
+					 
+					 var imagen = $(this).find(".imgPelicula").html();
+					 $(".detalle .contentDetalle .contentDetalleImagen").html(imagen);	
+					 
+					 var titulo = $(this).find(".despelicula p").text();
+					 $(".detalle #titulo").html(titulo);
+					 
+					  
+					console.log(base + "getPeliculaDetalle.php?codigoCine="+ idsala + "&codigoPelicula="+ idpelicula);
+					$.getJSON(base + "getPeliculaDetalle.php?codigoCine="+ idsala + "&codigoPelicula="+ idpelicula, function (data) {
+						console.log(data); 
+						$('#busy').hide();
+						 $.each(data.BusquedaDetallePeliculaResult , function(i,item){
+							console.log(item); 
+							 
+							$(".detalle .contentHorario").append('<p>'+item.horarios+'</p>');
+							$(".detalle .contentSipnosis").append('<p>'+item.argumentoPelicula+'</p>');
+							$(".detalle .contentGenero").append('<p>'+item.detalles+'</p>');
+							$(".detalle .contentVideo").append('<p>Si no pueder ver el video, <a href="'+item.trailerUrlPelicula+'">hacer click aqui!</a></p>');
+							$(".detalle .contentMapa").append('<p>'+item.latitud  + ',' + item.longitud +'</p>');
+							
+							$(".detalle .contentVideo").append('<div class="content-iframe"><iframe width="100%" height="250" src="http://www.youtube.com/embed/qrGx2e6VP_k" frameborder="0" allowfullscreen></iframe></div>');
+							
+							/*$.each(item , function(a,itemResult){							
+								console.log(itemResult);								 
+							});*/
+							//getPeliculaDetalle()
 						  });
 					  }); 
 			  

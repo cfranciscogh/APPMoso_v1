@@ -397,7 +397,7 @@ body.cine .salas .cine {
 }
 body.cine .salas .cine .contentImg{
 	float:left;
-	width:60%;
+	width:50%;
 }
 body.cine .salas .cine .contentImg img{
 	max-width:90%;
@@ -494,7 +494,7 @@ body.cine .peliculas ul li .despelicula{
 	float:right;
 	width:54%;
 	padding-left:10px;	
-	background-image:url(img/flechaAzul.png);
+	background-image:url(img/flechaRojo.png);
 	background-position:100% 48%;
 	background-repeat:no-repeat;
 	padding:5px 20px 20px 0px;
@@ -504,7 +504,7 @@ body.cine .peliculas ul li .despelicula{
 body.cine .peliculas ul li p{
 	margin:0px;
 	color:#515151;
-	padding-bottom:15px;
+	padding-bottom:8px;
 	
 	}
 body.cine .peliculas ul li span{
@@ -526,6 +526,75 @@ body.cine .peliculas ul li a.vermas{
 border-radius: 8px;
 font-size:14px;
 	}
+	
+	
+/******* DETALLE DE PELICULA*************/	
+body.cine .detalle #titulo{
+	margin:0px;
+	padding:10px;
+	font-size:16px;
+	text-align:left;
+	color:#5d5d5d;
+}
+body.cine .detalle .contentDetalle{
+	height:auto;
+}
+
+body.cine .detalle .contentDetalle .contentDetalleImagen{
+	float:left;
+	width:50%;
+	text-align:center;
+}
+body.cine .detalle .contentDetalle .contentDetalleImagen img{
+	max-width:90%;
+}
+	
+body.cine .detalle .contentDetalle .contentDetalleOpciones{
+	float:right;
+	width:50%;
+}
+body.cine .detalle .contentDetalle .contentDetalleOpciones a{
+	border:solid 1px #9fa5a1;
+	padding:10px 0px;
+	display:block;
+	margin:auto;
+	width:90%;
+	color:white;
+	background-color:#f4151a;
+	text-align:center;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font-size:15px;
+	margin-bottom:8px;
+	
+	background-image: linear-gradient(bottom, rgb(191,30,22) 15%, rgb(238,34,37) 58%);
+background-image: -o-linear-gradient(bottom, rgb(191,30,22) 15%, rgb(238,34,37) 58%);
+background-image: -moz-linear-gradient(bottom, rgb(191,30,22) 15%, rgb(238,34,37) 58%);
+background-image: -webkit-linear-gradient(bottom, rgb(191,30,22) 15%, rgb(238,34,37) 58%);
+background-image: -ms-linear-gradient(bottom, rgb(191,30,22) 15%, rgb(238,34,37) 58%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.15, rgb(191,30,22)),
+	color-stop(0.58, rgb(238,34,37))
+);
+}
+
+body.cine .detalle .contentSipnosis, body.cine .detalle .contentGenero, body.cine .detalle .contentVideo, body.cine .detalle .contentHorario, body.cine .detalle .contentMapa{
+	width:93%;
+	margin:auto;
+}
+body.cine .detalle .contentSipnosis h3, body.cine .detalle .contentGenero h3, body.cine .detalle .contentVideo h3, body.cine .detalle .contentHorario h3,  body.cine .detalle .contentMapa h3{
+	margin:0px;
+	padding:10px 0px;
+	font-size:16px;
+	text-align:left;
+	color:#5d5d5d;
+}
+		
 /**************************************************************************/
 /***************************  FIN CINE    *********************************/
 /**************************************************************************/
