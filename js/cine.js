@@ -91,7 +91,7 @@ $(document).ready(function(){
 								console.log(itemResult); 
 								
 								$(".peliculas ul").append('<li id="'+itemResult.codigoRespuesta+'" cine="'+idcine+'" sala="'+idsala+'"><div class="imgPelicula"><img src="'+itemResult.imagenUrlRespuesta+'" alt="pelicual"/></div><div class="despelicula"><p>'+itemResult.nombreRespuesta+'</p><span>'+
-								(itemResult.direccionRespuesta.length<1? desprueba : itemResult.direccionRespuesta) +'</span></div></li>');
+								(itemResult.direccionRespuesta.length<1? desprueba : itemResult.direccionRespuesta) +'</span><a class="vermas">Ver detalle >></a></div><div class="clear"></div> </li>');
 								
 								$("h1.ayer").html( itemResult.nombreCriterio.toUpperCase() + " - CARTELERA");
 							});

@@ -475,18 +475,49 @@ background-image: -webkit-gradient(
 
 	}
 	
-
+body.cine .peliculas ul li .imgPelicula{
+	float:left;
+	width:40%;
+	text-align:center;
+	}
+body.cine .peliculas ul li .imgPelicula img{
+	max-width:80%;
+	}
+	
+body.cine .peliculas ul li .despelicula{
+	float:right;
+	width:54%;
+	padding-left:10px;	
+	background-image:url(img/flechaAzul.png);
+	background-position:100% 48%;
+	background-repeat:no-repeat;
+	padding:20px 20px 20px 0px;
+	}
+	
 
 body.cine .peliculas ul li p{
 	margin:0px;
 	color:#515151;
-	background-image:url(img/flechaAzul.png);
-	background-position:top right;
-	background-repeat:no-repeat;
+	padding-bottom:15px;
+	
 	}
 body.cine .peliculas ul li span{
 	margin:0px;
 	color:#7a7a7a;
+	display:block;
+	padding-bottom:10px;
+	}
+body.cine .peliculas ul li a.vermas{
+	padding:10px 20px;
+	display:block;
+	margin:auto;
+	width:50%;
+	color:white;
+	background-color:#f4151a;
+	text-align:center;
+	-webkit-border-radius: 8px;
+-moz-border-radius: 8px;
+border-radius: 8px;
 	}
 /**************************************************************************/
 /***************************  FIN CINE    *********************************/
