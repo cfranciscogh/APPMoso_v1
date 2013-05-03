@@ -581,6 +581,7 @@ background-image: -webkit-gradient(
 	color-stop(0.15, rgb(191,30,22)),
 	color-stop(0.58, rgb(238,34,37))
 );
+text-decoration:none;
 }
 
 body.cine .detalle .contentSipnosis, body.cine .detalle .contentGenero, body.cine .detalle .contentVideo, body.cine .detalle .contentHorario, body.cine .detalle .contentMapa{
@@ -593,6 +594,10 @@ body.cine .detalle .contentSipnosis h3, body.cine .detalle .contentGenero h3, bo
 	font-size:16px;
 	text-align:left;
 	color:#5d5d5d;
+}
+
+body.cine .detalle .contentSipnosis p, body.cine .detalle .contentGenero p, body.cine .detalle .contentVideo p, body.cine .detalle .contentHorario p,  body.cine .detalle .contentMapa p{
+	margin-top:0px;
 }
 		
 /**************************************************************************/

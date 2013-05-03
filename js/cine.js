@@ -1,8 +1,28 @@
 var base = "http://bip.pe/smart/free/moso/data/";
+var baseLatitud = "";
+var baseLongitud = "";
 //var base = "../app/";
 $(document).ready(function(){
 		
 			getEmployeeList();
+			
+			$('.detalle .contentDetalle a[href^="#"]').each(function() {
+			
+				$(this).click(function (e) {
+					e.preventDefault();
+			
+					var target = this.hash,
+					$target = $(target);
+			
+					$('html, body').stop().animate({
+						'scrollTop': $target.offset().top
+					}, 900, 'swing', function () {
+						window.location.hash = target;
+					});
+				});
+			
+			});
+		
 		});
 		
 		function getEmployeeList() {
@@ -110,6 +130,8 @@ $(document).ready(function(){
 		
 		
 		function getPeliculaDetalle(){
+			
+		
 		
 		 //$(".menuInicio a").each(function() {
 		$(".peliculas ul li").each(function() {
@@ -131,21 +153,21 @@ $(document).ready(function(){
 					 $(".detalle #titulo").html(titulo);
 					 
 					  
-					console.log(base + "getPeliculaDetalle.php?codigoCine="+ idsala + "&codigoPelicula="+ idpelicula);
+					//console.log(base + "getPeliculaDetalle.php?codigoCine="+ idsala + "&codigoPelicula="+ idpelicula);
 					$.getJSON(base + "getPeliculaDetalle.php?codigoCine="+ idsala + "&codigoPelicula="+ idpelicula, function (data) {
-						console.log(data); 
+						//console.log(data); 
 						$('#busy').hide();
 						 $.each(data.BusquedaDetallePeliculaResult , function(i,item){
-							console.log(item); 
+							//console.log(item); 
 							 
-							$(".detalle .contentHorario").append('<p>'+item.horarios+'</p>');
-							$(".detalle .contentSipnosis").append('<p>'+item.argumentoPelicula+'</p>');
-							$(".detalle .contentGenero").append('<p>'+item.detalles+'</p>');
-							$(".detalle .contentVideo").append('<p>Si no pueder ver el video, <a href="'+item.trailerUrlPelicula+'">hacer click aqui!</a></p>');
-							$(".detalle .contentMapa").append('<p>'+item.latitud  + ',' + item.longitud +'</p>');
+							$(".detalle .contentHorario p").html(item.horarios);
+							$(".detalle .contentSipnosis p").html(item.argumentoPelicula);
+							$(".detalle .contentGenero p").html(item.detalles);
+							$(".detalle .contentVideo p").html('Si no pueder ver el video, <a href="'+item.trailerUrlPelicula+'">hacer click aqui!</a>');
+							//$(".detalle .contentMapa div").html('<p>'+item.latitud  + ',' + item.longitud +'</p>');
 							
-							$(".detalle .contentVideo").append('<div class="content-iframe"><iframe width="100%" height="250" src="http://www.youtube.com/embed/qrGx2e6VP_k" frameborder="0" allowfullscreen></iframe></div>');
-							
+							$(".detalle .contentVideo .content-iframe").html('<iframe width="100%" height="250" src="http://www.youtube.com/embed/qrGx2e6VP_k" frameborder="0" allowfullscreen></iframe>');
+							miUbicacion(item.latitud ,item.longitud);
 							/*$.each(item , function(a,itemResult){							
 								console.log(itemResult);								 
 							});*/
@@ -160,7 +182,80 @@ $(document).ready(function(){
 		}
 		
 		
-		function volver(){
-			$(".resultHoroscopo").fadeOut().html("");
-			 $(".servicios").fadeIn();
+		function ocultarDetalle(){
+			 $('#detalle').fadeOut('fast', function() {
+				$(".peliculas").fadeIn();
+			  });
+  
+			/*$(".detalle").fadeOut();
+			 $(".peliculas").fadeIn();*/
+		}
+		
+		
+		
+		function miUbicacion(latitudCine, longitudCine){
+			
+			baseLatitud = latitudCine;
+			baseLongitud = longitudCine;
+ 
+			//errorGeo
+			$('#errorGeo').html("Detectando ubicacion ...");
+				
+			if (navigator.geolocation) {
+			  navigator.geolocation.getCurrentPosition(mostrar_mapa, gestiona_errores);
+			} 
+			else {
+				$('#errorGeo').html("No soporta geolocalizacion ...");			  
+			}
+
+	
+		}
+		
+		function mostrar_mapa(position) {
+			
+		  	$('#errorGeo').html("");
+		
+			var latitud = position.coords.latitude;
+			var longitud = position.coords.longitude;
+			
+			var myLocation = new google.maps.LatLng(latitud, longitud);
+
+			map  = new google.maps.Map(document.getElementById('geoLocation'), {
+				mapTypeId: google.maps.MapTypeId.ROADMAP,
+				center: myLocation,
+				zoom: 15
+			});
+				
+			var marker = new google.maps.Marker({
+				map: map,
+				position: myLocation,
+				icon: "img/yomapa.png"
+
+			}); 
+			
+			var myLocationCine = new google.maps.LatLng(parseFloat(baseLatitud), parseFloat(baseLongitud));
+			var markerCine = new google.maps.Marker({
+				map: map,
+				position: myLocationCine,
+				icon: "img/cinemapa.png"
+
+			}); 
+	
+		}
+
+		
+		function gestiona_errores(err) {	 
+			
+		  if (err.code == 0) {
+			$('#errorGeo').html("Error: desconocido");
+		  }
+		  if (err.code == 1) {
+			$('#errorGeo').html("Error: El usuario no ha compartido su posicion");
+		  }
+		  if (err.code == 2) {
+			$('#errorGeo').html("Error: No se puede obtener la posicion actual");
+		  }
+		  if (err.code == 3) {
+			$('#errorGeo').html("Error: Timeout recibiendo la posicion");
+		  }
 		}
