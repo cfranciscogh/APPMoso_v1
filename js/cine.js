@@ -183,7 +183,7 @@ $(document).ready(function(){
 		
 		
 		function ocultarDetalle(){
-			 $('#detalle').fadeOut('fast', function() {
+			 $('.detalle').fadeOut('fast', function() {
 				$(".peliculas").fadeIn();
 			  });
   
