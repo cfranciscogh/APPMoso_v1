@@ -223,7 +223,7 @@ $(document).ready(function(){
 			map  = new google.maps.Map(document.getElementById('geoLocation'), {
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
 				center: myLocation,
-				zoom: 10
+				zoom: 9
 			});
 				
 			var marker = new google.maps.Marker({
