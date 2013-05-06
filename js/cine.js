@@ -166,7 +166,7 @@ $(document).ready(function(){
 							$(".detalle .contentVideo p").html('Si no pueder ver el video, <a href="'+item.trailerUrlPelicula+'">hacer click aqui!</a>');
 							//$(".detalle .contentMapa div").html('<p>'+item.latitud  + ',' + item.longitud +'</p>');
 							
-							$(".detalle .contentVideo .content-iframe").html('<iframe width="100%" height="250" src="http://www.youtube.com/embed/qrGx2e6VP_k" frameborder="0" allowfullscreen></iframe>');
+							$(".detalle .contentVideo .content-iframe").html('<iframe width="100%" height="250" src="'+item.trailerUrlPeliculaEmbed+'" frameborder="0" allowfullscreen></iframe>');
 							miUbicacion(item.latitud ,item.longitud);
 							/*$.each(item , function(a,itemResult){							
 								console.log(itemResult);								 
