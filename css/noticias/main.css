@@ -1,0 +1,161 @@
+/* CSS Document */
+/*Import Reset CSS*/
+/*@import url(reset.css);*/
+body {
+	padding:0px;
+	font-family:Helvetica, Arial;
+}
+/*** PAGE ***/
+div#page {
+	max-width:700px;
+	height:auto;
+	margin:auto;
+	border:solid 0px red;
+	background-color:#ededed;
+	position:relative;
+}
+/*** HEAD ***/
+div#fecha {
+	margin-top:10px;
+}
+div#fecha p{
+	 color:#434343;
+	 text-align:center;
+	 font-size:12px;
+	 /*font-weight:bold;*/
+	 padding:8px 10px;
+	 margin:0px;
+}
+
+div#head {
+	background-color: #000000;
+	/* Border radius */	 
+	height:auto;	 
+	color:#FFF;
+	text-align:center; 
+	padding:0 15px;
+	border-bottom:solid 5px #1494f5;	
+}
+/*** destacado ***/
+div#destacado {
+	padding:5px 10px;
+	text-align:center;
+}
+
+div#destacado p {
+ text-align:center;
+ color:#1094f8;
+ font-size:21px;
+ font-weight:bold;
+}
+div#destacado span {
+color:#565656;
+font-size:15px;
+/*font-weight:bold;*/
+display:block;
+padding:10px 0 5px 0;
+	 
+}
+
+div#destacado img {
+border:solid 1px black;
+clear:both;
+}
+
+div#destacado a{
+	color:#565656;
+	text-decoration:none;
+}
+
+div#marco{
+	padding:10px;
+}
+
+div#marco div#contenido{
+	padding:5px 0 0 0px;
+	background-color:#fff;
+	text-align:center;
+	border:solid 1px #bababa;
+	border-bottom:none;
+}
+div#marco div#contenido table{
+	width:100%;
+}
+div#marco div#contenido table tr td{
+	border-bottom:solid 1px #bababa;
+	text-align:left;
+	vertical-align:middle;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	color:#5f5f5f;
+	padding:5px;
+	vertical-align:top;
+	
+}
+div#marco div#contenido table tr td a{
+	color:#5f5f5f;
+	text-decoration:none;
+	display:block;
+}
+div#marco div#contenido table tr td a img{
+	max-width:100%;
+	-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+border:solid 1px #ccc;
+}
+
+div#marco div#contenido table tr td.txt{
+	padding:5px;
+	padding-top:10px;
+	padding-right:10px;
+	text-align:justify;
+}
+div#marco.video table{
+	width:100%;
+}
+div#marco.video img{
+	width:96%;
+}
+
+div#marco h1{
+ color:#1095f9;
+ font-size:21px;
+ font-weight:bold;
+}
+
+div#marco.video p{
+ 
+ font-size:14px; 
+}
+div#marco.video a{
+	display:block;
+	text-align:right;
+	font-size:12px;
+	padding:5px 0;
+	width:95%;
+	color:#565656;
+}
+
+
+
+div#footer {
+	margin-top:5px;
+	background-color: #060606;
+	/* Border radius */
+	 
+	color: #fff;
+	font-size:12px;
+	line-height: 25px;
+	text-transform: none;
+	padding-right: 10px;
+	padding-left: 10px;
+	font-weight: bold;
+	text-align:center;
+	 
+}
+div#footer a{	 
+	color: #fff;
+}
+
+

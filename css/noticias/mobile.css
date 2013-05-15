@@ -1,0 +1,32 @@
+/* CSS Document */
+
+/*** PAGE ***/
+div#page {
+	width:100%;
+	height:auto;
+	margin:auto;
+	border:solid 0px red;
+}
+div#head img {
+	width:100%;
+}
+div#destacado img{
+	width:90%;
+}
+ div#destacado p{
+	 text-align:left;
+}
+ div#destacado span{
+	text-align:left;
+}
+ div#destacado{
+	text-align:left;
+}
+ div#fecha p{
+	 text-align:left;
+} 
+ 
+
+div#marco #contenido img.baner {
+	width:96%;
+}
